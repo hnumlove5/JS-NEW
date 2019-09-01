@@ -8,12 +8,12 @@ const rp = require('request-promise');
 const config = require('./config');
 const { Message, OpType, Location } = require('../curve-thrift/line_types');
 //let exec = require('child_process').exec;
-const myBot = ['u1794f175bac96f66461ed36ba70808cd'];
+const myBot = ['ua26d317bf6c058a4c00aa93caee1ab0d'];
 const banList = [];//Banned list
 var groupList = new Array();//Group list
 var vx = {};var midnornama,pesane,kickhim;var waitMsg = "no";//DO NOT CHANGE THIS
 const imgArr = ['png','jpg','jpeg','gif','bmp','webp'];//DO NOT CHANGE THIS
-var komenTL = "AutoLike by MAX\n≽ VERSION JS\nhttp://line.me/ti/p/%40jnx0914l"; //Comment for timeline
+var komenTL = "AutoLike by HNUM\n≽ VERSION JS"; //Comment for timeline
 var bcText = "Masukan teks untuk broadcast";
 var limitposts = '10'; //Output timeline post
 
@@ -62,9 +62,9 @@ class LINE extends LineAPI {
 			salam: 0 //1 = Yes, 0 = No
         }
 		this.keyhelp = "\n\
-⍟ Help Command :\n\n\
-      • Speed\n\
-      • Tagall\n\
+⍟ Help Command ᴮʸ☃нηυм вσт ℓιηє:\n\n\
+      • สปีด\n\
+      • แทค\n\
       • Cancel\n\
       • Setting\n\
       • Clearchat\n\
@@ -79,7 +79,7 @@ class LINE extends LineAPI {
 ⍟ Kick Command :\n\n\
       • Kickme\n\
       • Clearinvite\n\
-      • Maxkick\n\
+      • ดีงับ =บิน\n\
       ";
         var that = this;
     }
@@ -615,7 +615,7 @@ class LINE extends LineAPI {
 				bang.to = seq.to;
 				bang.text = midnya;
 				this._client.sendMessage(0, bang);
-			}else if(txt == "me"){
+			}else if(txt == "คท"){
 				vx[0] = "";vx[1] = "";waitMsg = "no";vx[2] = "";vx[3] = "";
 				seq.text = seq.from_.toString();
 				this._client.sendMessage(0, seq);
@@ -1124,7 +1124,7 @@ Link Download: "+idU.id+"\n";
 				this._sendMessage(seq,"# How to !youtube\nKirim link youtubenya !");
 			}
 		}
-		if(txt == "!youtube" && !isBanned(seq.from_)){
+		if(txt == "ยูทูป" && !isBanned(seq.from_)){
 			if(vx[2] == null || typeof vx[2] === "undefined" || !vx[2]){
 				waitMsg = "yes";
 			    vx[0] = seq.from_;vx[1] = txt;
@@ -1563,15 +1563,15 @@ Link Download: "+idU.id+"\n";
 					   await this._updateGroup(updateGroup);
 					}
 					const groupUrl = await this._reissueGroupTicket(groupList[txt - 1]);
-					this._sendMessage(seq,"Line Group -> line://ti/g/"+groupUrl);
+					this._sendMessage(seq,"ลิ้งกลุ่ม -> line://ti/g/"+groupUrl);
 				}else{this._sendMessage(seq,"Group tidak ada !");}
 			}
 		}
-		if(txt == "grouplist" && isAdminOrBot(seq.from_)){
+		if(txt == "ลิ้งกลุ่ม" && isAdminOrBot(seq.from_)){
 			if(vx[2] == null || typeof vx[2] === "undefined" || !vx[2]){
 				waitMsg = "yes";
 			    vx[0] = seq.from_;vx[1] = txt;
-			    this._sendMessage(seq,"「 Group Utility 」\n- Grouplist = list\n- Group Ticket = ticket\n");
+			    this._sendMessage(seq,"「 Group Utility 」\n- ลิ้งกลุ่ม = list\n- Group Ticket = ticket\n");
 				vx[2] = "arg1";
 			}else{
 				waitMsg = "no";vx[0] = "";vx[1] = "";vx[2] = "";vx[3] = "";
@@ -1609,22 +1609,22 @@ Link Download: "+idU.id+"\n";
 			this._sendMessage(seq, "Succes Clear Message !");
 		}
 		
-        const sp = ['!speed','sp','speed','resp','respon'];
+        const sp = ['!speed','sp','speed','สปีด','เชคสปีด'];
         if(sp.includes(txt) && !isBanned(banList, seq.from_)) {
 			const curTime = (Date.now() / 1000);let M = new Message();M.to=seq.to;M.text = '';M.contentType = 1;M.contentPreview = null;M.contentMetadata = null;
 			await this._client.sendMessage(0,M);
 			const rtime = (Date.now() / 1000);
             const xtime = rtime	- curTime;
-            this._sendMessage(seq, xtime+' second');
-        }else if(sp.includes(txt) && isBanned(banList, seq.from_)){this._sendMessage(seq,"Not permitted !");}
+            this._sendMessage(seq, xtime+' second \n ᴮʸ☃нηυм вσт ℓιηє');
+        }else if(sp.includes(txt) && isBanned(banList, seq.from_)){this._sendMessage(seq,"เช็คสปีดไม่ผ่าน \n ᴮʸ☃нηυм вσт ℓιηє");}
 		
-        if(txt == '!speed' && !isBanned(banList, seq.from_)) {
+        if(txt == 'สปีด' && !isBanned(banList, seq.from_)) {
 			const curTime = Math.floor(Date.now() / 1000);let M = new Message();M.to=seq.to;M.text = '';M.contentType = 1;M.contentPreview = null;M.contentMetadata = null;
 			await this._client.sendMessage(0,M);
 			const rtime = Math.floor(Date.now() / 1000);
             const xtime = rtime	- curTime;
-            this._sendMessage(seq, xtime+' second');
-        }else if(txt == '!speed' && isBanned(banList, seq.from_)){this._sendMessage(seq,"Not permitted !");}
+            this._sendMessage(seq, xtime+' second \n ᴮʸ☃нηυм вσт ℓιηє');
+        }else if(txt == 'สปีด' && isBanned(banList, seq.from_)){this._sendMessage(seq,"เช็คสปีดไม่ผ่าน \n ᴮʸ☃нηυм вσт ℓιηє");}
 
         /*if(txt === 'kernel') {
             exec('uname -a;ptime;id;whoami',(err, sto) => {
@@ -1639,12 +1639,12 @@ Link Download: "+idU.id+"\n";
                     this._kickMember(seq.to,[listMember[i].mid])
                 }
             }
-        }else if(txt === '!kickall' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt === 'บิน','bin','.','555','ดีงับ','รอไร' && !isAdminOrBot(seq.from_) && seq.toType == 2){this._sendMessage(seq,"มีคนกำลังสั่งใช้งานบอทบิน");}
 		 
 		if(txt == 'help') {
 			let botOwner = await this._client.getContacts([myBot[0]]);
             let { mid, displayName } = await this._client.getProfile();
-			let key2 = "MAX BOTS\n\
+			let key2 = "Ħnum✭₮€$₮✯฿❂₮✯ℒłℕ€\n\
 ≽ VERSION J.S\n\
             ";
 			seq.text = key2 += this.keyhelp;
@@ -1656,7 +1656,7 @@ Link Download: "+idU.id+"\n";
             for (var i = 0; i < listMember.length; i++) {
                 if(listMember[i].mid==param){
 					let namanya = listMember[i].dn;
-					seq.text = 'Halo @'+namanya+', Selamat datang bro ! Salam Kenal ^_^';
+					seq.text = 'สวัดดีครับกัปตัน @'+namanya+', ไม่ทราบว่ากัปตันมาจากสายการบินไหนครับ ^_^';
 					let midnya = listMember[i].mid;
 					let kata = seq.text.split("@").slice(0,1);
 					let kata2 = kata[0].split("");
@@ -1678,9 +1678,9 @@ Link Download: "+idU.id+"\n";
             }
         }
 		
-		if(txt == "tagall" && seq.toType == 2 && !isBanned(banList, seq.from_)){
+		if(txt == "แทค" && seq.toType == 2 && !isBanned(banList, seq.from_)){
 			await this.tagAlls(seq);
-		}else if(txt == '!tagall' && isBanned(banList, seq.from_)){this._sendMessage(seq,"Not permitted !");}
+		}else if(txt == 'แทค' && isBanned(banList, seq.from_)){this._sendMessage(seq,"แทคมากๆ ระวังโดนจับปี้ละ");}
 		
 		if(txt == '0103' && lockt == 1){
 			let ax = await this._client.getGroup(seq.to);
@@ -1696,7 +1696,7 @@ Link Download: "+idU.id+"\n";
             for (var i = 0; i < listMember.length; i++) {
                 if(listMember[i].mid==param){
 					let namanya = listMember[i].dn;
-					seq.text = 'Goodbye ! @'+namanya;
+					seq.text = 'โชคดีเด้อ ! @'+namanya;
 					let midnya = listMember[i].mid;
 					let kata = seq.text.split("@").slice(0,1);
 					let kata2 = kata[0].split("");
@@ -1815,7 +1815,7 @@ Link Download: "+idU.id+"\n";
 			}
 		}
 		
-		if(txt == '!ginfo' && !isBanned(banList, seq.from_)) {
+		if(txt == 'ข้อมูลกลุ่ม' && !isBanned(banList, seq.from_)) {
             let groupInfo = await this._client.getGroup(seq.to);let gqr = 'open';let ticketg = 'line://ti/g/';
 			let createdT64 = groupInfo.createdTime.toString().split(" ");
 			let createdTime = await this._getServerTime(createdT64[0]);
@@ -1838,17 +1838,17 @@ Link Download: "+idU.id+"\n";
 			let bang = new Message();
 			bang.to = seq.to;
 			
-			bang.text = "# Group Name:\n"+gname+"\n\
-\n# Group ID:\n"+gid+"\n\
-\n# Group Creator:\n"+gcreator+"\n\
-\n# Group CreatedTime:\n"+createdTime+"\n\
-\n# Group Ticket:\n"+ticketg+"\n\
+			bang.text = "# ชื่อกลุ่ม :\n"+gname+"\n\
+\n# กลุ่ม ID:\n"+gid+"\n\
+\n# กลุ่ม Creator:\n"+gcreator+"\n\
+\n# กลุ่ม CreatedTime:\n"+createdTime+"\n\
+\n# กลุ่ม Ticket:\n"+ticketg+"\n\
 \n# Member: "+memberCount+"\n\
 \n# Pending: "+pendingCount+"\n\
 \n# QR: "+gqr+"\n\
 \n# Group Cover:\nhttp://dl.profile.line.naver.jp/"+gcover;
             this._client.sendMessage(0,bang);
-        }else if(txt == '!ginfo' && isBanned(banList, seq.from_)){this._sendMessage(seq,"Not permitted !");}
+        }else if(txt == '!ginfo' && isBanned(banList, seq.from_)){this._sendMessage(seq,"เชคเพื่อ");}
 
         const joinByUrl = ['!gurl','!curl'];
         if(joinByUrl.includes(txt) && txt == "!gurl") {
